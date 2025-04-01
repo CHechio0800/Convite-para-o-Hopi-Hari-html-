@@ -1,25 +1,35 @@
 <!DOCTYPE html> 
-<html lang="pt-BR"> <!– indica a linguagem do documento, no caso Portugues -> 
-<head> <!– a cabeça do Site ->
-    <meta charset="UTF-8"> <!–  é uma tag usado para garantir que todos os caracteres sejam interpretados corretamente ->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!– é uma tag HTML que define o tamanho e o zoom inicial de uma página web. ->
+<html lang="pt-BR"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Convite para Hopi Hari</title>
-    <style> <!–  guarda informações de estilo, como cor, tamanho de fonte, layout, entre outros. ->
-
+    <style> 
         body { 
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            <!–  o BODY define todo o conteúdo visivel do site ->
         }
         header {
             background-color: #ffcc00;
             padding: 20px;
             font-size: 24px;
             font-weight: bold;
-            <!–  O header representa o cabeçalho da página ->
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #ff9306;
+            padding: 10px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
         }
         section {
             margin: 20px;
@@ -27,71 +37,92 @@
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            <!–  O section serve para agrupar conteúdos que possuem relação entre si ->
+            display: none; /* Esconde as seções inicialmente */
         }
-        img {
-            width: 80%;
-            max-width: 600px;
+        .flex-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .flex-section img {
+            width: 45%;
+            max-width: 300px;
             border-radius: 10px;
-            margin-bottom: 15px;
-            <!–  a tag Img é usada para inserir imagens na página ->
+        }
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
         .social-links a {
             display: inline-block;
-            margin: 10px;
+            padding: 10px 15px;
             text-decoration: none;
             font-weight: bold;
-            color: #ff9306;
+            color: white;
+            background-color: #ff9306;
+            border-radius: 5px;
         }
         footer {
             background-color: #333333;
             color: white;
             padding: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            text-align: center;
         }
-
-        .logo {
-            width: 150px; /* Diminui da logo */
-        } 
     </style>
 </head>
 <body>
-     <!-- Cabeçalho com título e logo -->
-     <header>
-        <img src="https://www.caasp.org.br/admin/imagens/Logotipo_HopiHNovo.png" alt="Logo Hopi Hari" class="logo">
-         
-    </header>
-    
+    <!-- Cabeçalho com título e logo -->
     <header>
-        Bem-vindo ao Hopi Hari!
+        <img src="https://www.caasp.org.br/admin/imagens/Logotipo_HopiHNovo.png" alt="Logo Hopi Hari" class="logo" style="width: 150px;">
+        <p>Bem-vindo ao Hopi Hari!</p>
     </header>
-    
-    <section>
+
+    <!-- Menu de navegação -->
+    <nav>
+        <a onclick="showSection('inauguracao')">Inauguração</a>
+        <a onclick="showSection('parque')">Conheça o Parque</a>
+        <a onclick="showSection('redes-sociais')">Redes Sociais</a>
+    </nav>
+
+    <!-- Sessão de inauguração -->
+    <section id="inauguracao">
         <h2>Inauguração</h2>
         <p>Data: 27 de novembro de 1999</p>
         <p>Local: Vinhedo, São Paulo, Brasil</p>
     </section>
-    
-    <section>
+
+    <!-- Sessão com imagens do parque -->
+    <section id="parque" class="flex-section">
         <h2>Conheça o Parque!</h2>
         <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/9f/89/cd/regiao-de-infantasia.jpg?w=1200&h=1200&s=1" alt="Imagem do parque Hopi Hari">
         <img src="https://cdn-meloja.nyc3.cdn.digitaloceanspaces.com/stores/uploads/3828819/conversions/large.jpg" alt="Montanha-russa Hopi Hari">
-    
     </section>
-    
-    <section class="social-links">
+
+    <!-- Sessão de redes sociais -->
+    <section id="redes-sociais" class="social-links">
         <h2>Redes Sociais e Ingressos</h2>
         <a href="https://www.instagram.com/hopihari/" target="_blank">Instagram</a>
-        <a href="https://www.hopihari.com.br/" target="_blank">Site Oficial - Compre seu ingresso!</a>
+        <a href="https://www.hopihari.com.br/" target="_blank">Site Oficial</a>
     </section>
-    <!– O href leva o usuário a outras páginas ->
-    <!– O target define onde um link deve abrir quando o usuário clica nele ->
-    
+
+    <!-- Rodapé -->
     <footer>
         <p>&copy; 2025 Hopi Hari - O País Mais Divertido do Mundo!</p>
     </footer>
-    <!– O footer representa o rodapé da página ->
+
+    <script>
+        function showSection(sectionId) {
+            // Esconde todas as seções
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Mostra a seção correspondente
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
 </body>
 </html>
